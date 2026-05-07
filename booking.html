@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Stay — Tommy’s Hotel</title>
+    
+    <!-- CSS Links -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/booking.css">
+    <link rel="stylesheet" href="css/dark-mode.css">
+</head>
+<body>
+
+    <!-- Page Loader -->
+    <div id="page-loader">
+        <div class="loader-logo">Tommy’s Hotel</div>
+        <div class="loader-bar">
+            <div class="loader-bar-fill"></div>
+        </div>
+    </div>
+
+    <!-- Shared Navbar Component -->
+    <div id="navbar-root"></div>
+
+    <main>
+        <header class="booking-hero">
+            <div class="container">
+                <h1 class="heading-display">Complete Your Reservation</h1>
+                <p style="color: rgba(255,255,255,0.9); font-weight: 500;">Just a few details away from your dream stay at Tommy’s Hotel.</p>
+            </div>
+        </header>
+
+        <section class="container">
+            <div class="booking-layout">
+                <!-- Left Column: Booking Form -->
+                <div class="booking-form-area">
+                    <form id="booking-form" class="booking-form-card" novalidate>
+                        
+                        <!-- Step 1: Personal Details -->
+                        <div class="booking-section">
+                            <h2 class="booking-section-title">
+                                <span class="step-number">1</span> Personal Information
+                            </h2>
+                            <div class="form-row-2">
+                                <div class="form-group">
+                                    <label class="form-label" for="full-name">Full Name</label>
+                                    <input type="text" id="full-name" class="form-control" placeholder="John Doe" required>
+                                    <span class="form-error" id="full-name-error"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="email">Email Address</label>
+                                    <input type="email" id="email" class="form-control" placeholder="john@example.com" required>
+                                    <span class="form-error" id="email-error"></span>
+                                </div>
+                            </div>
+                            <div class="form-row-2">
+                                <div class="form-group">
+                                    <label class="form-label" for="phone">Phone Number</label>
+                                    <input type="tel" id="phone" class="form-control" placeholder="+234 800 000 0000" required>
+                                    <span class="form-error" id="phone-error"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="promo-code">Promo Code (Optional)</label>
+                                    <div class="promo-row">
+                                        <input type="text" id="promo-code" class="form-control" placeholder="Enter code">
+                                        <button type="button" class="btn btn-outline btn-sm" id="apply-promo-btn">Apply</button>
+                                    </div>
+                                    <span class="form-error" id="promo-message"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="booking-divider"></div>
+
+                        <!-- Step 2: Stay Details -->
+                        <div class="booking-section">
+                            <h2 class="booking-section-title">
+                                <span class="step-number">2</span> Stay Details
+                            </h2>
+                            <div class="form-row-2">
+                                <div class="form-group">
+                                    <label class="form-label" for="checkin">Check-In Date</label>
+                                    <input type="date" id="checkin" class="form-control" required>
+                                    <span class="form-error" id="checkin-error"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="checkout">Check-Out Date</label>
+                                    <input type="date" id="checkout" class="form-control" required>
+                                    <span class="form-error" id="checkout-error"></span>
+                                </div>
+                            </div>
+                            <div class="form-row-2">
+                                <div class="form-group">
+                                    <label class="form-label" for="adults">Adults</label>
+                                    <select id="adults" class="form-control">
+                                        <option value="1">1 Adult</option>
+                                        <option value="2" selected>2 Adults</option>
+                                        <option value="3">3 Adults</option>
+                                        <option value="4">4 Adults</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="children">Children</label>
+                                    <select id="children" class="form-control">
+                                        <option value="0">No Children</option>
+                                        <option value="1">1 Child</option>
+                                        <option value="2">2 Children</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="special-requests">Special Requests (Optional)</label>
+                                <textarea id="special-requests" class="form-control" placeholder="Tell us about any preferences or special occasions..."></textarea>
+                            </div>
+                        </div>
+
+                        <div class="booking-divider"></div>
+
+                        <!-- Step 3: Payment Method -->
+                        <div class="booking-section">
+                            <h2 class="booking-section-title">
+                                <span class="step-number">3</span> Payment Method
+                            </h2>
+                            <p style="margin-bottom: 1.5rem; color: var(--text-secondary); font-size: 0.9rem;">
+                                Your payment details are secure. We only use this to guarantee your reservation.
+                            </p>
+
+                            <div class="payment-method-toggle">
+                                <button type="button" class="payment-method-btn active" data-method="card">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+                                    Credit Card
+                                </button>
+                                <button type="button" class="payment-method-btn" data-method="bank">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18"/><path d="M3 10h18"/><path d="M5 10V7a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v3"/><path d="M4 10v11"/><path d="M20 10v11"/><path d="M8 14v3"/><path d="M12 14v3"/><path d="M16 14v3"/></svg>
+                                    Bank Transfer
+                                </button>
+                            </div>
+
+                            <!-- Card Panel -->
+                            <div id="card-panel" class="payment-panel active">
+                                <div class="card-visual reveal">
+                                    <div class="card-chip"></div>
+                                    <div class="card-number-display" id="card-number-display">•••• •••• •••• ••••</div>
+                                    <div class="card-holder-display" id="card-holder-display">CARDHOLDER NAME</div>
+                                    <div class="card-network">VISA</div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="card-holder">Name on Card</label>
+                                    <input type="text" id="card-holder" class="form-control" placeholder="JOHN DOE">
+                                    <span class="form-error" id="card-holder-error"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="card-number">Card Number</label>
+                                    <input type="text" id="card-number" class="form-control" placeholder="0000 0000 0000 0000">
+                                    <span class="form-error" id="card-number-error"></span>
+                                </div>
+                                <div class="form-row-2">
+                                    <div class="form-group">
+                                        <label class="form-label" for="card-expiry">Expiry Date</label>
+                                        <input type="text" id="card-expiry" class="form-control" placeholder="MM / YY">
+                                        <span class="form-error" id="card-expiry-error"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="card-cvv">CVV</label>
+                                        <input type="text" id="card-cvv" class="form-control" placeholder="000">
+                                        <span class="form-error" id="card-cvv-error"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Bank Transfer Panel -->
+                            <div id="bank-panel" class="payment-panel">
+                                <div class="bank-transfer-info">
+                                    <h4>Our Account Details</h4>
+                                    <div class="bank-detail-row">
+                                        <span class="bank-detail-label">Bank Name</span>
+                                        <span class="bank-detail-value">Tommy’s Global Bank</span>
+                                    </div>
+                                    <div class="bank-detail-row">
+                                        <span class="bank-detail-label">Account Name</span>
+                                        <span class="bank-detail-value">Tommy’s Hotel Limited</span>
+                                    </div>
+                                    <div class="bank-detail-row">
+                                        <span class="bank-detail-label">Account Number</span>
+                                        <span class="bank-detail-value">1234567890</span>
+                                    </div>
+                                    <p style="font-size: 0.8rem; margin-top: 1rem; color: var(--text-secondary);">
+                                        * Please use your booking reference as the payment description.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="margin-top: 2rem;">
+                            <button type="submit" class="btn btn-primary btn-full btn-lg">Confirm My Booking</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Right Column: Order Summary -->
+                <aside class="order-summary">
+                    <div class="order-summary-card">
+                        <div class="order-summary-img">
+                            <img src="" id="summary-room-img" alt="Selected Room">
+                        </div>
+                        <div class="order-summary-body">
+                            <h3 class="order-room-name" id="summary-room-name">The Indulgence Suite</h3>
+                            <div class="stars">★★★★★</div>
+                            
+                            <div class="order-details-list">
+                                <div class="order-detail-item">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                                    <span id="summary-checkin">Tue, 12 May 2026</span>
+                                </div>
+                                <div class="order-detail-item">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><circle cx="12" cy="20" r="2"/></svg>
+                                    <span id="summary-checkout">Thu, 14 May 2026</span>
+                                </div>
+                                <div class="order-detail-item">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                                    <span id="summary-guests">2 Adults, 0 Children</span>
+                                </div>
+                            </div>
+
+                            <div class="order-price-breakdown">
+                                <div class="price-line">
+                                    <span>Room Price (<span id="summary-nights">2 nights</span>)</span>
+                                    <strong id="summary-room-price">₦300,000</strong>
+                                </div>
+                                <div class="price-line">
+                                    <span>Taxes & Fees (7.5%)</span>
+                                    <strong id="summary-taxes">₦22,500</strong>
+                                </div>
+                                <div class="price-line">
+                                    <span>Service Charge</span>
+                                    <strong id="summary-service">₦15,000</strong>
+                                </div>
+                                <div class="price-line total">
+                                    <span>Total Price</span>
+                                    <span id="summary-total">₦337,500</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <!-- Success Modal -->
+    <div class="success-modal-overlay" id="success-modal">
+        <div class="success-modal">
+            <div class="success-checkmark">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <h2>Booking Confirmed!</h2>
+            <p>Your sanctuary is waiting for you. A confirmation email with all the details has been sent to your address.</p>
+            
+            <div class="booking-ref">
+                <span class="booking-ref-label">Booking Reference</span>
+                <div class="booking-ref-number" id="booking-ref-number">TH-7X8Y9Z</div>
+            </div>
+
+            <div class="success-modal-actions">
+                <button class="btn btn-outline" id="modal-view-bookings">View My Bookings</button>
+                <button class="btn btn-primary" id="modal-return-home">Return Home</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Shared Footer Placeholder -->
+    <div id="footer-root"></div>
+
+    <!-- JS Scripts -->
+    <script src="js/navbar.js"></script>
+    <script src="js/footer.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/booking.js"></script>
+</body>
+</html>

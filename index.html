@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tommy’s Hotel — Where Every Stay Becomes a Story Worth Telling</title>
+    <meta name="description" content="Indulge in timeless luxury, unmatched comfort, and the kind of hospitality that turns guests into lifelong friends at Tommy’s Hotel.">
+    
+    <!-- Meta tags for SEO & Social -->
+    <meta property="og:title" content="Tommy’s Hotel — Timeless Luxury & Warm Hospitality">
+    <meta property="og:description" content="Experience the pinnacle of hospitality at Tommy’s Hotel. Book your stay today.">
+    <meta property="og:image" content="images/hero/hero-main.jpg">
+    <meta property="og:type" content="website">
+
+    <!-- CSS Links -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/dark-mode.css">
+
+    <!-- Favicon Placeholder -->
+    <link rel="icon" type="image/png" href="favicon.png">
+</head>
+<body>
+
+    <!-- Page Loader -->
+    <div id="page-loader">
+        <div class="loader-logo">Tommy’s Hotel</div>
+        <div class="loader-bar">
+            <div class="loader-bar-fill"></div>
+        </div>
+    </div>
+
+    <!-- Shared Navbar Component -->
+    <div id="navbar-root"></div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="hero-bg">
+                <img src="images/hero/hero-main.jpg" alt="Tommy’s Hotel Hero View">
+            </div>
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <span class="hero-label">Welcome to Excellence</span>
+                <h1 class="hero-title">Tommy’s <span>Hotel</span></h1>
+                <p class="hero-tagline">Where Every Stay Becomes a Story Worth Telling</p>
+                <p class="hero-subtagline">Indulge in timeless luxury, unmatched comfort, and the kind of hospitality that turns guests into lifelong friends.</p>
+                
+                <!-- Search Bar -->
+                <div class="hero-search">
+                    <form id="hero-search-form" class="hero-search-grid">
+                        <div class="hero-search-field">
+                            <label for="hero-checkin">Check-In</label>
+                            <input type="date" id="hero-checkin" required>
+                        </div>
+                        <div class="hero-search-field">
+                            <label for="hero-checkout">Check-Out</label>
+                            <input type="date" id="hero-checkout" required>
+                        </div>
+                        <div class="hero-search-field">
+                            <label for="hero-room-type">Room Type</label>
+                            <select id="hero-room-type">
+                                <option value="">All Types</option>
+                                <option value="deluxe">Deluxe Room</option>
+                                <option value="signature">Signature Suite</option>
+                                <option value="family">Family Suite</option>
+                                <option value="presidential">Presidential Suite</option>
+                                <option value="studio">Studio</option>
+                            </select>
+                        </div>
+                        <div class="hero-search-field">
+                            <label for="hero-guests">Guests</label>
+                            <input type="number" id="hero-guests" min="1" max="10" placeholder="1">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Search Availability</button>
+                    </form>
+                </div>
+            </div>
+            
+
+        </section>
+
+        <!-- Featured Rooms Section -->
+        <section class="section featured-rooms">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-label">Our Accommodations</span>
+                    <h2 class="heading-xl">Handpicked for You</h2>
+                    <p>From cozy retreats to palatial suites, we have the perfect room waiting for you.</p>
+                </div>
+                
+                <div class="grid-3">
+                    <!-- Deluxe Room Card -->
+                    <article class="room-card reveal reveal-delay-1">
+                        <div class="room-card-img">
+                            <img src="images/rooms/deluxe-room-1.jpg" alt="The Harmony Deluxe Room">
+                        </div>
+                        <div class="room-card-body">
+                            <div class="room-card-header">
+                                <h3 class="room-card-name">The Harmony Deluxe</h3>
+                                <div class="stars">★★★★★</div>
+                            </div>
+                            <p class="room-card-desc">A sanctuary of calm with golden hour views, designed for ultimate relaxation.</p>
+                            <div class="room-card-footer">
+                                <div class="room-price">
+                                    <span class="room-price-amount">₦85,000</span>
+                                    <span class="room-price-label">/ night</span>
+                                </div>
+                                <a href="room-details.html?id=1" class="btn btn-outline btn-sm">View Room</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Signature Suite Card -->
+                    <article class="room-card reveal reveal-delay-2">
+                        <div class="room-card-img">
+                            <img src="images/rooms/suite-1.jpg" alt="The Indulgence Signature Suite">
+                        </div>
+                        <div class="room-card-body">
+                            <div class="room-card-header">
+                                <h3 class="room-card-name">The Indulgence Suite</h3>
+                                <div class="stars">★★★★★</div>
+                            </div>
+                            <p class="room-card-desc">Because you deserve more than the ordinary. Luxury redefined for the discerning guest.</p>
+                            <div class="room-card-footer">
+                                <div class="room-price">
+                                    <span class="room-price-amount">₦150,000</span>
+                                    <span class="room-price-label">/ night</span>
+                                </div>
+                                <a href="room-details.html?id=3" class="btn btn-outline btn-sm">View Room</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Presidential Suite Card -->
+                    <article class="room-card reveal reveal-delay-3">
+                        <div class="room-card-img">
+                            <img src="images/rooms/presidential-suite-1.jpg" alt="The Grand Presidential Suite">
+                        </div>
+                        <div class="room-card-body">
+                            <div class="room-card-header">
+                                <h3 class="room-card-name">The Grand Presidential</h3>
+                                <div class="stars">★★★★★</div>
+                            </div>
+                            <p class="room-card-desc">The pinnacle of what luxury feels like. Commanding views and commanding presence.</p>
+                            <div class="room-card-footer">
+                                <div class="room-price">
+                                    <span class="room-price-amount">₦450,000</span>
+                                    <span class="room-price-label">/ night</span>
+                                </div>
+                                <a href="room-details.html?id=8" class="btn btn-outline btn-sm">View Room</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Amenities Section -->
+        <section class="section amenities-section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-label">Experience Luxury</span>
+                    <h2 class="heading-xl">A World of Comfort at Your Fingertips</h2>
+                    <p>We've curated every detail of your experience to ensure a stay that is as effortless as it is unforgettable.</p>
+                </div>
+
+                <div class="amenities-grid">
+                    <!-- Swimming Pool -->
+                    <div class="amenity-card reveal reveal-delay-1">
+                        <div class="amenity-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6c.6.5 1.2 1 2.5 1C5.8 7 7 5.5 8.5 5.5c1.5 0 2.7 1.5 4 1.5 1.3 0 2.5-1.5 4-1.5s2.7 1.5 4 1.5c1.3 0 1.9-.5 2.5-1"/><path d="M2 12c.6.5 1.2 1 2.5 1 1.3 0 2.5-1.5 4-1.5s2.7 1.5 4 1.5c1.3 0 2.5-1.5 4-1.5s2.7 1.5 4 1.5c1.3 0 1.9-.5 2.5-1"/><path d="M2 18c.6.5 1.2 1 2.5 1 1.3 0 2.5-1.5 4-1.5s2.7 1.5 4 1.5c1.3 0 2.5-1.5 4-1.5s2.7 1.5 4 1.5c1.3 0 1.9-.5 2.5-1"/></svg>
+                        </div>
+                        <h3>Swimming Pool</h3>
+                        <p>Dive into crystal clear waters in our infinity pool, overlooking the city's breathtaking skyline.</p>
+                    </div>
+
+                    <!-- Rooftop Restaurant -->
+                    <div class="amenity-card reveal reveal-delay-2">
+                        <div class="amenity-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+                        </div>
+                        <h3>Rooftop Restaurant</h3>
+                        <p>Award-winning dining with global flavors and local soul, served with a side of panoramic views.</p>
+                    </div>
+
+                    <!-- Wellness Spa -->
+                    <div class="amenity-card reveal reveal-delay-3">
+                        <div class="amenity-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21a9 9 0 1 1 0-18 9 9 0 0 1 0 18z"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+                        </div>
+                        <h3>Wellness Spa</h3>
+                        <p>Escape the noise in our tranquil sanctuary, where ancient therapies meet modern holistic wellness.</p>
+                    </div>
+
+                    <!-- Fitness Center -->
+                    <div class="amenity-card reveal reveal-delay-4">
+                        <div class="amenity-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18h12"/><path d="M6 6h12"/><path d="M12 6v12"/><path d="M2 10h4"/><path d="M18 10h4"/><path d="M2 14h4"/><path d="M18 14h4"/><path d="M3 6l1 12"/><path d="M21 6l-1 12"/></svg>
+                        </div>
+                        <h3>Fitness Center</h3>
+                        <p>A state-of-the-art facility designed to keep you moving, even when you're away from home.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Us Section -->
+        <section class="section why-us-section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-label">Our Commitment</span>
+                    <h2 class="heading-xl">The Tommy’s Hotel Promise</h2>
+                    <p>We don't just provide a place to sleep; we offer a commitment to excellence that permeates every moment of your stay.</p>
+                </div>
+
+                <div class="why-us-grid">
+                    <div class="why-card reveal reveal-delay-1">
+                        <div class="why-card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        </div>
+                        <h3>24/7 Concierge Service</h3>
+                        <p>Our dedicated team is always on hand to assist with your every need, from dinner reservations to local secrets.</p>
+                    </div>
+
+                    <div class="why-card reveal reveal-delay-2">
+                        <div class="why-card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                        </div>
+                        <h3>Award-Winning Dining</h3>
+                        <p>Experience culinary mastery with dishes prepared by world-class chefs using the finest seasonal ingredients.</p>
+                    </div>
+
+                    <div class="why-card reveal reveal-delay-3">
+                        <div class="why-card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        </div>
+                        <h3>Private & Secure</h3>
+                        <p>Your privacy is our priority. Enjoy your stay with the peace of mind that comes from our discreet and robust security.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Preview Section -->
+        <section class="section gallery-section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-label">Visual Journey</span>
+                    <h2 class="heading-xl">A Glimpse Into Your Future Stay</h2>
+                    <p>Wander through our spaces and envision the moments you'll create here.</p>
+                </div>
+
+                <div class="gallery-masonry">
+                    <div class="gallery-item reveal" data-gallery="home">
+                        <img src="images/gallery/gallery-1.jpg" alt="Hotel Exterior Night View">
+                        <div class="gallery-item-overlay">
+                            <div class="gallery-zoom-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item reveal" data-gallery="home">
+                        <img src="images/gallery/gallery-2.jpg" alt="Luxury Lobby Lounge">
+                        <div class="gallery-item-overlay">
+                            <div class="gallery-zoom-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item reveal" data-gallery="home">
+                        <img src="images/gallery/gallery-3.jpg" alt="Rooftop Pool at Sunset">
+                        <div class="gallery-item-overlay">
+                            <div class="gallery-zoom-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item reveal" data-gallery="home">
+                        <img src="images/gallery/gallery-4.jpg" alt="Fine Dining Experience">
+                        <div class="gallery-item-overlay">
+                            <div class="gallery-zoom-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item reveal" data-gallery="home">
+                        <img src="images/gallery/gallery-5.jpg" alt="Wellness Spa Treatment Room">
+                        <div class="gallery-item-overlay">
+                            <div class="gallery-zoom-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item reveal" data-gallery="home">
+                        <img src="images/gallery/gallery-6.jpg" alt="Suite Balcony View">
+                        <div class="gallery-item-overlay">
+                            <div class="gallery-zoom-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="text-align: center;">
+                    <a href="rooms.html" class="btn btn-outline">View Full Gallery</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="section testimonials-section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-label">Guest Stories</span>
+                    <h2 class="heading-xl">Voices of Our Guests</h2>
+                    <p>The true measure of our success is the happiness of those who stay with us.</p>
+                </div>
+
+                <div class="testimonials-carousel reveal reveal-delay-1">
+                    <div class="testimonials-track">
+                        <!-- Testimonial 1 -->
+                        <div class="testimonial-card">
+                            <div class="testimonial-stars">★★★★★</div>
+                            <p class="testimonial-quote">"I've stayed in five-star hotels across 30 countries, and Tommy’s Hotel gave me something none of them could — the feeling of being genuinely cared for. The staff remembered my daughter's birthday on our second night. I was speechless."</p>
+                            <div class="testimonial-author">
+                                <span class="testimonial-name">Amelia T.</span>
+                                <span class="testimonial-country">United Kingdom 🇬🇧</span>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 2 -->
+                        <div class="testimonial-card">
+                            <div class="testimonial-stars">★★★★★</div>
+                            <p class="testimonial-quote">"The suite was breathtaking, but what made our honeymoon unforgettable was the handwritten note and champagne waiting for us at check-in. Someone paid attention to the little details, and it showed in every single moment."</p>
+                            <div class="testimonial-author">
+                                <span class="testimonial-name">Kwame & Esi A.</span>
+                                <span class="testimonial-country">Ghana 🇬🇭</span>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 3 -->
+                        <div class="testimonial-card">
+                            <div class="testimonial-stars">★★★★★</div>
+                            <p class="testimonial-quote">"Business trips are usually lonely and transactional. At Tommy’s Hotel, I found myself lingering at breakfast just to chat with the staff. The food, the comfort, the warmth — I've already booked my return stay."</p>
+                            <div class="testimonial-author">
+                                <span class="testimonial-name">Haruto N.</span>
+                                <span class="testimonial-country">Japan 🇯🇵</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-dots">
+                        <button class="carousel-dot active" aria-label="Go to slide 1"></button>
+                        <button class="carousel-dot" aria-label="Go to slide 2"></button>
+                        <button class="carousel-dot" aria-label="Go to slide 3"></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section class="section newsletter-section">
+            <div class="container">
+                <div class="newsletter-card reveal">
+                    <h2>Be the First to Know</h2>
+                    <p>Exclusive deals, seasonal offers, and curated travel tips — delivered straight to your inbox. No spam, ever.</p>
+                    
+                    <form id="newsletter-form" class="newsletter-form">
+                        <input type="email" placeholder="Your email address" required aria-label="Email for newsletter">
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+
+                    <div id="newsletter-success" class="newsletter-success">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        <span>Thank you! You're now on our exclusive list.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-banner" class="cookie-banner">
+        <p>We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies. <a href="#">Learn more</a></p>
+        <div class="cookie-actions">
+            <button id="cookie-decline" class="btn btn-outline btn-sm">Decline</button>
+            <button id="cookie-accept" class="btn btn-primary btn-sm">Accept All</button>
+        </div>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <button id="scroll-top" aria-label="Scroll to top">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+    </button>
+
+    <!-- Lightbox -->
+    <div id="lightbox">
+        <button id="lightbox-close" class="lightbox-close" aria-label="Close lightbox">&times;</button>
+        <button id="lightbox-prev" class="lightbox-btn lightbox-prev" aria-label="Previous image">&#10094;</button>
+        <div class="lightbox-content">
+            <img id="lightbox-img" class="lightbox-img" src="" alt="">
+            <div id="lightbox-counter" class="lightbox-counter"></div>
+        </div>
+        <button id="lightbox-next" class="lightbox-btn lightbox-next" aria-label="Next image">&#10095;</button>
+    </div>
+
+    <!-- Shared Footer Placeholder -->
+    <div id="footer-root"></div>
+
+    <!-- JS Scripts -->
+    <script src="js/navbar.js"></script>
+    <script src="js/footer.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

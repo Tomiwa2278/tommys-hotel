@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room Details — Tommy’s Hotel</title>
+    
+    <!-- CSS Links -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/room-details.css">
+    <link rel="stylesheet" href="css/dark-mode.css">
+</head>
+<body>
+
+    <!-- Page Loader -->
+    <div id="page-loader">
+        <div class="loader-logo">Tommy’s Hotel</div>
+        <div class="loader-bar">
+            <div class="loader-bar-fill"></div>
+        </div>
+    </div>
+
+    <!-- Shared Navbar Component -->
+    <div id="navbar-root"></div>
+
+    <main class="container">
+        <div class="room-details-layout">
+            <!-- Left Column: Gallery & Info -->
+            <div class="room-main-content">
+                <!-- Gallery Section -->
+                <section class="room-gallery">
+                    <div class="room-gallery-hero" id="gallery-hero">
+                        <img src="" id="gallery-hero-img" alt="Room Hero View">
+                        <div class="gallery-expand-hint">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                            <span>Click to expand</span>
+                        </div>
+                    </div>
+                    <div class="room-thumbnails">
+                        <div class="room-thumb active"><img src="" alt="View 1"></div>
+                        <div class="room-thumb"><img src="" alt="View 2"></div>
+                        <div class="room-thumb"><img src="" alt="View 3"></div>
+                        <div class="room-thumb"><img src="" alt="View 4"></div>
+                    </div>
+                </section>
+
+                <!-- Room Information -->
+                <section class="room-info-section">
+                    <div class="room-info-header">
+                        <div>
+                            <h1 class="room-name" id="room-name">The Indulgence Suite</h1>
+                            <div class="room-rating-row">
+                                <div class="stars">★★★★★</div>
+                                <span class="room-rating-number" id="room-rating">4.9 (211 reviews)</span>
+                                <span class="badge badge-gold" id="room-type-badge">Signature Suite</span>
+                            </div>
+                        </div>
+                        <div class="room-price-display">
+                            <span class="room-price" id="room-price">₦150,000</span>
+                            <span style="font-size: 1rem; color: var(--text-secondary);">/ night</span>
+                        </div>
+                    </div>
+
+                    <div class="room-description" id="room-description">
+                        The Indulgence Suite doesn't ask you to compromise. It asks you to decide how you'd like your champagne — chilled by the minibar or delivered by a smiling member of our in-room dining team. Sink into the bespoke linens and let the city's hum fade into the background. This is what more looks like, and it looks like this.
+                    </div>
+
+                    <!-- Amenities Grid -->
+                    <div class="room-amenities-section">
+                        <h3>Room Amenities</h3>
+                        <div class="amenities-grid-3col">
+                            <div class="amenity-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 20h20"/><path d="M7 20v-5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v5"/><path d="M12 13V2"/><path d="M10 2h4"/></svg>
+                                <span>King Bed</span>
+                            </div>
+                            <div class="amenity-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                                <span>En-suite Bathroom</span>
+                            </div>
+                            <div class="amenity-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r="2"/></svg>
+                                <span>Free WiFi</span>
+                            </div>
+                            <div class="amenity-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="15" rx="2" ry="2"/><polyline points="17 2 12 7 7 2"/></svg>
+                                <span>Smart TV</span>
+                            </div>
+                            <div class="amenity-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg>
+                                <span>Air Conditioning</span>
+                            </div>
+                            <div class="amenity-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h12l3 6v12H3V9l3-6z"/><path d="M3 9h18"/><path d="M8 3v6"/><path d="M16 3v6"/><path d="M12 12v6"/></svg>
+                                <span>Mini Bar</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Policies Accordion -->
+                    <div class="policies-section">
+                        <h3>Hotel Policies</h3>
+                        <div class="accordion-item">
+                            <button class="accordion-header">
+                                <span>Check-in & Check-out</span>
+                                <svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                            </button>
+                            <div class="accordion-body">
+                                <div class="accordion-content">
+                                    Check-in time starts at 2:00 PM. Check-out time is by 12:00 PM. Early check-in or late check-out is subject to availability and may incur additional charges.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <button class="accordion-header">
+                                <span>Cancellation Policy</span>
+                                <svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                            </button>
+                            <div class="accordion-body">
+                                <div class="accordion-content">
+                                    Free cancellation is available up to 48 hours before the arrival date. Cancellations made within 48 hours of arrival will be charged for the first night of the stay.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <button class="accordion-header">
+                                <span>Pet & Smoking Policy</span>
+                                <svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                            </button>
+                            <div class="accordion-body">
+                                <div class="accordion-content">
+                                    Tommy’s Hotel is a non-smoking property. Pets are not allowed, with the exception of service animals.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Right Column: Booking Sidebar -->
+            <aside class="booking-sidebar">
+                <div class="booking-sidebar-card">
+                    <div class="booking-sidebar-price">
+                        <span class="sidebar-price-amount" id="sidebar-price">₦150,000</span>
+                        <span class="sidebar-price-label">/ night</span>
+                    </div>
+                    
+                    <div class="booking-sidebar-form">
+                        <div class="form-group">
+                            <label class="form-label" for="sidebar-checkin">Check-In</label>
+                            <input type="date" id="sidebar-checkin" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="sidebar-checkout">Check-Out</label>
+                            <input type="date" id="sidebar-checkout" class="form-control">
+                        </div>
+                        <div class="form-row-2">
+                            <div class="form-group">
+                                <label class="form-label" for="sidebar-adults">Adults</label>
+                                <select id="sidebar-adults" class="form-control">
+                                    <option value="1">1 Adult</option>
+                                    <option value="2" selected>2 Adults</option>
+                                    <option value="3">3 Adults</option>
+                                    <option value="4">4 Adults</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="sidebar-children">Children</label>
+                                <select id="sidebar-children" class="form-control">
+                                    <option value="0" selected>0 Children</option>
+                                    <option value="1">1 Child</option>
+                                    <option value="2">2 Children</option>
+                                    <option value="3">3 Children</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary btn-full" id="sidebar-book-btn">Book This Room</button>
+                    </div>
+                    <p class="sidebar-note">No payment required today. You'll pay during your stay.</p>
+                </div>
+            </aside>
+        </div>
+
+        <!-- You May Also Like Section -->
+        <section class="similar-rooms-section">
+            <h2 class="heading-lg" style="margin-bottom: 2rem;">You May Also Like</h2>
+            <div class="grid-3" id="similar-rooms-grid">
+                <!-- Cards will be similar to featured rooms on index -->
+                <article class="room-card">
+                    <div class="room-card-img"><img src="images/rooms/deluxe-room-1.jpg" alt="The Harmony Deluxe"></div>
+                    <div class="room-card-body">
+                        <h3 class="room-card-name">The Harmony Deluxe</h3>
+                        <p class="room-card-desc">A sanctuary of calm with golden hour views.</p>
+                        <div class="room-card-footer">
+                            <div class="room-price"><span class="room-price-amount">₦85,000</span></div>
+                            <a href="room-details.html?id=1" class="btn btn-outline btn-sm">View Details</a>
+                        </div>
+                    </div>
+                </article>
+                <article class="room-card">
+                    <div class="room-card-img"><img src="images/rooms/suite-1.jpg" alt="The Azure Signature"></div>
+                    <div class="room-card-body">
+                        <h3 class="room-card-name">The Azure Signature</h3>
+                        <p class="room-card-desc">Where the sky meets your morning coffee.</p>
+                        <div class="room-card-footer">
+                            <div class="room-price"><span class="room-price-amount">₦175,000</span></div>
+                            <a href="room-details.html?id=5" class="btn btn-outline btn-sm">View Details</a>
+                        </div>
+                    </div>
+                </article>
+                <article class="room-card">
+                    <div class="room-card-img"><img src="images/rooms/presidential-suite-1.jpg" alt="The Grand Presidential"></div>
+                    <div class="room-card-body">
+                        <h3 class="room-card-name">The Grand Presidential</h3>
+                        <p class="room-card-desc">The pinnacle of what luxury feels like.</p>
+                        <div class="room-card-footer">
+                            <div class="room-price"><span class="room-price-amount">₦450,000</span></div>
+                            <a href="room-details.html?id=8" class="btn btn-outline btn-sm">View Details</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <!-- Mobile Sticky CTA Bar -->
+    <div class="room-mobile-cta">
+        <div class="room-mobile-cta-inner">
+            <div class="room-mobile-cta-price">
+                <span id="mobile-price">₦150,000</span>
+                <span>per night</span>
+            </div>
+            <a href="booking.html" class="book-this-room-link btn btn-primary">Book Now</a>
+        </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lightbox">
+        <button id="lightbox-close" class="lightbox-close">&times;</button>
+        <button id="lightbox-prev" class="lightbox-btn lightbox-prev">&#10094;</button>
+        <div class="lightbox-content">
+            <img id="lightbox-img" class="lightbox-img" src="" alt="">
+            <div id="lightbox-counter" class="lightbox-counter"></div>
+        </div>
+        <button id="lightbox-next" class="lightbox-btn lightbox-next">&#10095;</button>
+    </div>
+
+    <!-- Shared Footer Placeholder -->
+    <div id="footer-root"></div>
+
+    <!-- JS Scripts -->
+    <script src="js/navbar.js"></script>
+    <script src="js/footer.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/rooms.js"></script>
+    <script src="js/room-details.js"></script>
+</body>
+</html>

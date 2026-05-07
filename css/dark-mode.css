@@ -1,0 +1,171 @@
+/* ============================================================
+   TOMMY'S HOTEL — DARK-MODE.CSS
+   Additional dark mode overrides beyond CSS variables
+   ============================================================ */
+
+/* ---- Scrollbar ---- */
+[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-track {
+  background: #1a1a2e;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb {
+  background: #3a3a5a;
+  border-radius: 4px;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+  background: var(--color-secondary);
+}
+
+/* ---- Selection ---- */
+[data-theme="dark"] ::selection {
+  background: rgba(201, 169, 110, 0.25);
+  color: #fff;
+}
+
+/* ---- Hero on dark mode ---- */
+[data-theme="dark"] .hero-overlay {
+  background: linear-gradient(
+    160deg,
+    rgba(10, 10, 20, 0.82) 0%,
+    rgba(15, 15, 26, 0.65) 50%,
+    rgba(10, 10, 20, 0.85) 100%
+  );
+}
+
+/* ---- Cards ---- */
+[data-theme="dark"] .amenity-card {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+[data-theme="dark"] .why-card,
+[data-theme="dark"] .stat-card,
+[data-theme="dark"] .team-card,
+[data-theme="dark"] .booking-form-card,
+[data-theme="dark"] .order-summary-card,
+[data-theme="dark"] .contact-form-card,
+[data-theme="dark"] .contact-info-card,
+[data-theme="dark"] .profile-form-card,
+[data-theme="dark"] .upcoming-booking-card,
+[data-theme="dark"] .loyalty-history-card {
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
+}
+
+/* ---- Navbar on dark mode ---- */
+[data-theme="dark"] .navbar-links a {
+  color: rgba(245, 245, 245, 0.6);
+}
+
+[data-theme="dark"] .navbar-logo {
+  color: var(--color-secondary);
+}
+
+/* ---- Gallery items ---- */
+[data-theme="dark"] .gallery-item {
+  background: #1a1a2e;
+}
+
+/* ---- Compare drawer ---- */
+[data-theme="dark"] .compare-drawer {
+  background: #16162a;
+  border-top: 1px solid #2e2e4a;
+}
+
+/* ---- Lightbox improvements ---- */
+[data-theme="dark"] #lightbox {
+  background: rgba(0, 0, 0, 0.97);
+}
+
+/* ---- Auth page ---- */
+[data-theme="dark"] .auth-form-side {
+  background: var(--color-bg-dark);
+}
+
+/* ---- Cookie banner ---- */
+[data-theme="dark"] #cookie-banner {
+  background: #16162a;
+  border-top: 1px solid #2e2e4a;
+}
+
+/* ---- Page loader ---- */
+[data-theme="dark"] #page-loader {
+  background: var(--color-bg-dark);
+}
+
+/* ---- Inputs on dark ---- */
+[data-theme="dark"] input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(0.7);
+}
+
+[data-theme="dark"] select option {
+  background: #1e1e35;
+  color: var(--color-text-light);
+}
+
+/* ---- Accordion on dark ---- */
+[data-theme="dark"] .accordion-header:hover {
+  background: #222240;
+}
+
+/* ---- Stat cards mini ---- */
+[data-theme="dark"] .stat-mini-card {
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* ---- Bank transfer on dark ---- */
+[data-theme="dark"] .bank-transfer-info {
+  background: #16162a;
+}
+
+/* ---- Map placeholder on dark ---- */
+[data-theme="dark"] .map-placeholder {
+  background: #16162a;
+}
+
+/* ---- Room listing on dark ---- */
+[data-theme="dark"] .rooms-page-hero {
+  background: linear-gradient(135deg, #0f0f1a 0%, #1a1a30 100%);
+}
+
+/* ---- Filter sidebar on dark ---- */
+[data-theme="dark"] input[type="range"] {
+  background: linear-gradient(to right, var(--color-secondary) 0%, var(--color-secondary) var(--range-pct, 50%), #2e2e4a var(--range-pct, 50%));
+}
+
+/* ---- Comparison modal on dark ---- */
+[data-theme="dark"] .compare-modal-content {
+  background: #16162a;
+}
+
+/* ---- Dashboard on dark ---- */
+[data-theme="dark"] .dashboard-sidebar {
+  background: #13132a;
+  border-right-color: #2e2e4a;
+}
+
+[data-theme="dark"] .dashboard-mobile-tabs {
+  background: #13132a;
+}
+
+/* ---- Smooth transitions across theme switch ---- */
+*, *::before, *::after {
+  transition-property: background-color, color, border-color, box-shadow, fill, stroke;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+}
+
+/* Override to prevent transition on transforms (would break animations) */
+.reveal, .room-card:hover, .amenity-card:hover, .btn:hover,
+.gallery-item img, .room-thumb img, .navbar-hamburger .hamburger-line,
+.testimonials-track, .loader-bar-fill, .loyalty-progress-fill {
+  transition-property: opacity, transform, width, max-height;
+}

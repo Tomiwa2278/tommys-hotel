@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Rooms — Tommy’s Hotel</title>
+    <meta name="description" content="Discover our collection of sanctuary-like rooms and palatial suites. Find your perfect stay at Tommy’s Hotel.">
+    
+    <!-- CSS Links -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/rooms.css">
+    <link rel="stylesheet" href="css/dark-mode.css">
+</head>
+<body>
+
+    <!-- Page Loader -->
+    <div id="page-loader">
+        <div class="loader-logo">Tommy’s Hotel</div>
+        <div class="loader-bar">
+            <div class="loader-bar-fill"></div>
+        </div>
+    </div>
+
+    <!-- Shared Navbar Component -->
+    <div id="navbar-root"></div>
+
+    <main>
+        <!-- Hero Section -->
+        <header class="rooms-page-hero">
+            <div class="container">
+                <h1 class="heading-display">Our Sanctuaries</h1>
+                <p>From minimalist studios to grand presidential suites, discover a space designed for your comfort and style.</p>
+            </div>
+        </header>
+
+        <section class="container">
+            <div class="rooms-layout">
+                <!-- Filter Sidebar -->
+                <aside class="filter-sidebar">
+                    <div class="filter-toggle-btn" id="filter-toggle-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="2" y1="14" x2="6" y2="14"/><line x1="10" y1="12" x2="14" y2="12"/><line x1="18" y1="16" x2="22" y2="16"/></svg>
+                        <span>Filter Rooms</span>
+                    </div>
+
+                    <h3>Filters <button class="filter-reset-link" id="reset-filters-btn">Reset All</button></h3>
+
+                    <!-- Price Filter -->
+                    <div class="filter-group">
+                        <label class="filter-group-label">Price Per Night</label>
+                        <div class="price-slider-wrap">
+                            <div class="price-range-display">
+                                <span>₦50,000</span>
+                                <span id="price-max-display">₦500,000</span>
+                            </div>
+                            <input type="range" id="price-max" min="50000" max="500000" step="5000" value="500000" aria-label="Filter by maximum price">
+                        </div>
+                    </div>
+
+                    <!-- Room Type Filter -->
+                    <div class="filter-group">
+                        <label class="filter-group-label">Room Type</label>
+                        <div class="filter-checkbox-list">
+                            <label class="filter-checkbox">
+                                <input type="checkbox" class="type-filter" value="deluxe"> Deluxe Room
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" class="type-filter" value="signature"> Signature Suite
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" class="type-filter" value="family"> Family Suite
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" class="type-filter" value="presidential"> Presidential Suite
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" class="type-filter" value="studio"> Studio
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Availability Filter -->
+                    <div class="filter-group">
+                        <label class="filter-group-label">Stay Dates</label>
+                        <div class="filter-date-row">
+                            <input type="date" id="filter-checkin" class="form-control" aria-label="Check-in date">
+                            <input type="date" id="filter-checkout" class="form-control" aria-label="Check-out date">
+                        </div>
+                    </div>
+
+                    <!-- Guests Filter -->
+                    <div class="filter-group">
+                        <label class="filter-group-label">Number of Guests</label>
+                        <input type="number" id="filter-guests" class="form-control filter-guests-input" min="1" max="10" placeholder="1">
+                    </div>
+
+                    <button class="btn btn-primary btn-full" id="apply-filters-btn">Apply Filters</button>
+                </aside>
+
+                <!-- Rooms Main Content -->
+                <div class="rooms-main">
+                    <div class="rooms-toolbar">
+                        <div class="rooms-count" id="rooms-count-text">Showing <strong>8</strong> of <strong>8</strong> rooms</div>
+                        
+                        <div class="rooms-sort">
+                            <select id="sort-select" class="sort-select" aria-label="Sort rooms by">
+                                <option value="popular">Most Popular</option>
+                                <option value="price-asc">Price (Low-High)</option>
+                                <option value="price-desc">Price (High-Low)</option>
+                                <option value="newest">Newest First</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Rooms Grid -->
+                    <div class="rooms-grid" id="rooms-grid">
+                        <!-- Dynamic content injected by rooms.js -->
+                    </div>
+
+                    <!-- Empty State -->
+                    <div class="rooms-empty" id="rooms-empty">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+                        <h3>No rooms found</h3>
+                        <p>Try adjusting your filters or search criteria to find available sanctuaries.</p>
+                        <button class="btn btn-outline" style="margin-top: 1rem;" onclick="resetFilters()">Clear All Filters</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Comparison Drawer -->
+    <div class="compare-drawer" id="compare-drawer">
+        <div class="compare-drawer-inner">
+            <div class="compare-drawer-title">Compare Rooms</div>
+            <div class="compare-slots">
+                <div class="compare-slot" id="compare-slot-1">
+                    <span class="slot-name">Select a room</span>
+                    <button class="compare-slot-remove" style="display:none">&times;</button>
+                </div>
+                <div class="compare-slot" id="compare-slot-2">
+                    <span class="slot-name">Select a room</span>
+                    <button class="compare-slot-remove" style="display:none">&times;</button>
+                </div>
+            </div>
+            <div class="compare-drawer-actions">
+                <button class="btn btn-primary btn-sm" id="compare-now-btn" disabled>Compare Now</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Comparison Modal -->
+    <div class="compare-modal" id="compare-modal">
+        <div class="compare-modal-content">
+            <button class="compare-modal-close" id="compare-modal-close">&times;</button>
+            <h2 class="heading-lg" style="margin-bottom: 1.5rem; text-align: center;">Room Comparison</h2>
+            <div style="overflow-x: auto;">
+                <table class="compare-table">
+                    <thead>
+                        <tr id="compare-head-row">
+                            <th>Feature</th>
+                            <!-- Dynamic -->
+                        </tr>
+                    </thead>
+                    <tbody id="compare-tbody">
+                        <!-- Dynamic -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sticky Book Now Banner -->
+    <div class="sticky-book-banner" id="sticky-book-banner">
+        <div class="sticky-book-banner-inner">
+            <div>
+                <p>Ready to experience excellence?</p>
+                <span style="font-size: 0.8rem; opacity: 0.7;">Best rate guaranteed when you book directly.</span>
+            </div>
+            <a href="booking.html" class="btn btn-primary">Book Your Stay Now</a>
+        </div>
+    </div>
+
+    <!-- Scroll to Top -->
+    <button id="scroll-top" aria-label="Scroll to top">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+    </button>
+
+    <!-- Shared Footer Placeholder -->
+    <div id="footer-root"></div>
+
+    <!-- JS Scripts -->
+    <script src="js/navbar.js"></script>
+    <script src="js/footer.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/rooms.js"></script>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In / Register — Tommy’s Hotel</title>
+    
+    <!-- CSS Links -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/auth.css">
+    <link rel="stylesheet" href="css/dark-mode.css">
+</head>
+<body class="auth-page">
+
+    <div class="auth-container">
+        <!-- Left: Image/Brand Side -->
+        <div class="auth-brand-side">
+            <div class="auth-brand-content">
+                <a href="index.html" class="auth-logo">Tommy’s <span>Hotel</span></a>
+                <h1 class="auth-welcome-title">Your Sanctuary Awaits</h1>
+                <p class="auth-welcome-text">Join the Tommy’s Hotel inner circle for member-only rates, curated experiences, and a world of seamless comfort.</p>
+                
+                <div class="auth-benefits">
+                    <div class="benefit-item">
+                        <div class="benefit-icon">✓</div>
+                        <span>Best Rate Guaranteed</span>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">✓</div>
+                        <span>Early Check-in (Subject to Availability)</span>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">✓</div>
+                        <span>Exclusive Reward Points</span>
+                    </div>
+                </div>
+            </div>
+            <div class="auth-image-overlay"></div>
+        </div>
+
+        <!-- Right: Form Side -->
+        <div class="auth-form-side">
+            <div class="auth-form-container">
+                <!-- Theme Toggle for Auth Page -->
+                <button id="auth-theme-toggle" class="auth-theme-toggle" aria-label="Toggle dark mode"></button>
+
+                <div class="auth-tabs">
+                    <button class="auth-tab-btn active" data-tab="login-panel">Sign In</button>
+                    <button class="auth-tab-btn" data-tab="register-panel">Register</button>
+                </div>
+
+                <!-- Login Panel -->
+                <div id="login-panel" class="auth-form-panel active">
+                    <h2 class="auth-title">Welcome Back</h2>
+                    <p class="auth-subtitle">Please enter your details to access your account.</p>
+
+                    <form id="login-form" novalidate>
+                        <div class="form-group">
+                            <label class="form-label" for="login-email">Email Address</label>
+                            <input type="email" id="login-email" class="form-control" placeholder="name@example.com" required>
+                            <span class="form-error" id="login-email-error"></span>
+                        </div>
+                        <div class="form-group">
+                            <div class="label-row">
+                                <label class="form-label" for="login-password">Password</label>
+                                <a href="#" id="forgot-password-link" class="auth-link-sm">Forgot Password?</a>
+                            </div>
+                            <div class="password-wrap">
+                                <input type="password" id="login-password" class="form-control" placeholder="••••••••" required>
+                                <button type="button" class="password-toggle" aria-label="Show password">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                                </button>
+                            </div>
+                            <span class="form-error" id="login-password-error"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="auth-checkbox">
+                                <input type="checkbox"> <span>Stay signed in for 30 days</span>
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full btn-lg">Sign In</button>
+                    </form>
+
+                    <div class="auth-divider"><span>Or continue with</span></div>
+
+                    <div class="social-auth">
+                        <button class="social-auth-btn">
+                            <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google">
+                            Google
+                        </button>
+                        <button class="social-auth-btn">
+                            <img src="https://www.svgrepo.com/show/475643/facebook-color.svg" alt="Facebook">
+                            Facebook
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Register Panel -->
+                <div id="register-panel" class="auth-form-panel">
+                    <h2 class="auth-title">Create an Account</h2>
+                    <p class="auth-subtitle">Join us today and unlock exclusive member benefits.</p>
+
+                    <form id="register-form" novalidate>
+                        <div class="form-row-2">
+                            <div class="form-group">
+                                <label class="form-label" for="reg-firstname">First Name</label>
+                                <input type="text" id="reg-firstname" class="form-control" placeholder="John" required>
+                                <span class="form-error" id="reg-firstname-error"></span>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="reg-lastname">Last Name</label>
+                                <input type="text" id="reg-lastname" class="form-control" placeholder="Doe" required>
+                                <span class="form-error" id="reg-lastname-error"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="reg-email">Email Address</label>
+                            <input type="email" id="reg-email" class="form-control" placeholder="name@example.com" required>
+                            <span class="form-error" id="reg-email-error"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="reg-phone">Phone Number</label>
+                            <input type="tel" id="reg-phone" class="form-control" placeholder="+234 000 000 0000" required>
+                            <span class="form-error" id="reg-phone-error"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="reg-password">Password</label>
+                            <div class="password-wrap">
+                                <input type="password" id="reg-password" class="form-control" placeholder="Min. 8 characters" required>
+                                <button type="button" class="password-toggle" aria-label="Show password">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                                </button>
+                            </div>
+                            <span class="form-error" id="reg-password-error"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="reg-confirm">Confirm Password</label>
+                            <input type="password" id="reg-confirm" class="form-control" placeholder="••••••••" required>
+                            <span class="form-error" id="reg-confirm-error"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="auth-checkbox">
+                                <input type="checkbox" id="reg-terms"> <span>I agree to the <a href="#" class="auth-link-sm">Terms of Service</a> and <a href="#" class="auth-link-sm">Privacy Policy</a>.</span>
+                            </label>
+                            <span class="form-error" id="reg-terms-error"></span>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full btn-lg">Create Account</button>
+                    </form>
+                </div>
+                
+                <p class="auth-footer-text">
+                    Back to <a href="index.html" class="auth-link">Home Page</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Shared Footer Placeholder -->
+    <div id="footer-root"></div>
+
+    <!-- JS Scripts -->
+    <script src="js/auth.js"></script>
+    <script src="js/footer.js"></script>
+</body>
+</html>
