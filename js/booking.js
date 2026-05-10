@@ -246,16 +246,30 @@ document.addEventListener('DOMContentLoaded', () => {
     const refEl = document.getElementById('booking-ref-number');
     if (refEl) refEl.textContent = ref;
 
+    // Persist booking to localStorage
+    const newBooking = {
+      ref: ref,
+      roomName: room.name,
+      checkIn: checkinInput.value,
+      checkOut: checkoutInput.value,
+      price: document.getElementById('summary-total')?.textContent.replace('₦', '').replace(/,/g, '') || room.price,
+      status: 'Pending',
+      guestName: document.getElementById('full-name')?.value.trim(),
+      guestEmail: document.getElementById('email')?.value.trim(),
+      guestPhone: document.getElementById('phone')?.value.trim(),
+      dateBooked: new Date().toISOString()
+    };
+
+    const existingBookings = JSON.parse(localStorage.getItem('tommy-bookings') || '[]');
+    existingBookings.push(newBooking);
+    localStorage.setItem('tommy-bookings', JSON.stringify(existingBookings));
+
     // Show success modal
     document.getElementById('success-modal')?.classList.add('active');
     document.body.style.overflow = 'hidden';
   });
 
   // Modal close actions
-  document.getElementById('modal-view-bookings')?.addEventListener('click', () => {
-    window.location.href = 'dashboard.html';
-  });
-
   document.getElementById('modal-return-home')?.addEventListener('click', () => {
     document.getElementById('success-modal')?.classList.remove('active');
     document.body.style.overflow = '';

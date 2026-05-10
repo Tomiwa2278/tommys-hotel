@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Console — Tommy’s Hotel</title>
+    
+    <!-- CSS Links -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/dark-mode.css">
+</head>
+<body>
+
+    <!-- Page Loader -->
+    <div id="page-loader">
+        <div class="loader-logo">Tommy’s Hotel</div>
+        <div class="loader-bar">
+            <div class="loader-bar-fill"></div>
+        </div>
+    </div>
+
+    <!-- Shared Navbar Component -->
+    <div id="navbar-root"></div>
+
+    <!-- Mobile Tab Bar -->
+    <div class="dashboard-mobile-tabs">
+        <button class="sidebar-nav-item active" data-tab="overview">Overview</button>
+        <button class="sidebar-nav-item" data-tab="bookings">Reservations</button>
+        <button class="sidebar-nav-item" data-tab="profile">Profile</button>
+    </div>
+
+    <main class="dashboard-page">
+        <!-- Dashboard Sidebar -->
+        <aside class="dashboard-sidebar">
+            <div class="sidebar-user">
+                <div class="sidebar-avatar" id="sidebar-avatar-initials">ST</div>
+                <div class="sidebar-user-info">
+                    <div class="sidebar-user-name sidebar-user-name-display">Staff Member</div>
+                    <div class="sidebar-user-tier" id="sidebar-role-badge">Hotel Staff</div>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <button class="sidebar-nav-item active" data-tab="overview">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                    Operational Overview
+                </button>
+                <button class="sidebar-nav-item" data-tab="bookings">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    Manage Reservations
+                </button>
+                <button class="sidebar-nav-item" data-tab="notifications">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                    Staff Notifications
+                </button>
+                
+                <div class="sidebar-divider"></div>
+                
+                <button class="sidebar-nav-item" data-tab="profile">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    My Account
+                </button>
+                <button class="sidebar-nav-item" id="logout-btn" style="color: var(--color-error);">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                    Sign Out
+                </button>
+            </nav>
+        </aside>
+
+        <!-- Dashboard Content -->
+        <div class="dashboard-main">
+            
+            <!-- Tab: Overview -->
+            <div id="tab-overview" class="dashboard-tab active">
+                <h1 class="overview-greeting" id="dashboard-greeting">Operations Portal</h1>
+                <p class="overview-date" id="dashboard-date">Staff Duty — Thursday, 14 May 2026</p>
+
+                <div class="stats-row">
+                    <div class="stat-mini-card">
+                        <div class="stat-mini-label">Rooms to Clean</div>
+                        <div class="stat-mini-value">8</div>
+                        <div class="stat-mini-sub">Priority: High</div>
+                    </div>
+                    <div class="stat-mini-card">
+                        <div class="stat-mini-label">Check-ins Today</div>
+                        <div class="stat-mini-value">12</div>
+                        <div class="stat-mini-sub">First arrival at 2PM</div>
+                    </div>
+                    <div class="stat-mini-card">
+                        <div class="stat-mini-label">Maintenance Alerts</div>
+                        <div class="stat-mini-value">3</div>
+                        <div class="stat-mini-sub">Pending review</div>
+                    </div>
+                </div>
+
+                <div class="loyalty-history-card" style="margin-top: 2rem;">
+                    <div class="loyalty-history-header">Today's Guest Arrivals</div>
+                    <div style="overflow-x: auto;">
+                        <table class="loyalty-table">
+                            <thead>
+                                <tr>
+                                    <th>Guest</th>
+                                    <th>Room</th>
+                                    <th>Time</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>David Beckham</td>
+                                    <td>The Indulgence Suite</td>
+                                    <td>14:30</td>
+                                    <td><button class="btn btn-primary btn-sm check-in-btn">Check In</button></td>
+                                </tr>
+                                <tr>
+                                    <td>Elena Gilbert</td>
+                                    <td>The Harmony Deluxe</td>
+                                    <td>15:15</td>
+                                    <td><button class="btn btn-outline btn-sm notify-hk-btn">Notify Housekeeping</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab: Bookings -->
+            <div id="tab-bookings" class="dashboard-tab">
+                <h1 class="dashboard-tab-title">Reservation Registry</h1>
+                <p class="dashboard-tab-subtitle">Monitor and manage all active guest reservations.</p>
+
+                <div class="bookings-list">
+                    <!-- Reservation items would go here -->
+                     <div class="booking-row-card">
+                        <div class="booking-row-info">
+                            <h3 class="booking-row-name">The Magnolia Family Suite</h3>
+                            <div class="booking-row-meta">
+                                <span>Guest: Sarah Wilson</span>
+                                <span>·</span>
+                                <span>Ref: TH-M4N5P6</span>
+                            </div>
+                            <span class="badge badge-success">Active</span>
+                        </div>
+                        <div class="booking-row-actions">
+                            <button class="btn btn-outline btn-sm modify-booking-btn" data-ref="TH-M4N5P6">Modify</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab: Notifications -->
+            <div id="tab-notifications" class="dashboard-tab">
+                <h1 class="dashboard-tab-title">Staff Alerts</h1>
+                <p class="dashboard-tab-subtitle">Internal communications and operational updates.</p>
+
+                <div class="notifications-list">
+                    <div class="notification-item unread">
+                        <div class="notification-icon info">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                        </div>
+                        <div class="notification-content">
+                            <div class="notification-title">Maintenance Update</div>
+                            <p class="notification-text">The elevator in Wing B is now fully operational.</p>
+                        </div>
+                        <div class="notification-time">10m ago</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab: Profile -->
+            <div id="tab-profile" class="dashboard-tab">
+                <h1 class="dashboard-tab-title">Staff Profile</h1>
+                <p class="dashboard-tab-subtitle">Manage your personal staff credentials and preferences.</p>
+
+                <div class="profile-form-card">
+                    <form id="profile-form">
+                        <h3 class="profile-section-heading">Personal Details</h3>
+                        <div class="form-row-2">
+                            <div class="form-group">
+                                <label class="form-label">Full Name</label>
+                                <input type="text" id="profile-fullname" class="form-control" value="Staff Member">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Work Email</label>
+                                <input type="email" id="profile-email" class="form-control" value="staff@tommyshotel.com" disabled>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Update Profile</button>
+                        <span id="profile-save-msg" style="display:none; margin-left: 1rem; color: var(--color-success); font-weight: 600;">✓ Updated!</span>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- JS Scripts -->
+    <script src="js/navbar.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

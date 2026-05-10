@@ -77,13 +77,29 @@ document.addEventListener('DOMContentLoaded', () => {
     valid &= validate('login-email', email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email), 'Please enter a valid email address.');
     valid &= validate('login-password', password && password.length >= 6, 'Password must be at least 6 characters.');
 
-    if (valid) {
-      // Save user name for dashboard (demo only)
-      const emailName = email.split('@')[0];
-      localStorage.setItem('tommy-user-name', emailName.charAt(0).toUpperCase() + emailName.slice(1));
-      localStorage.setItem('tommy-user-email', email);
-      window.location.href = 'dashboard.html';
-    }
+      if (valid) {
+        // Role logic: admin@tommyshotel.com is Admin, staff@... is Staff, else Guest/User
+        let role = 'user';
+        if (email.toLowerCase() === 'admin@tommyshotel.com') role = 'admin';
+        else if (email.toLowerCase().includes('@tommyshotel.com')) role = 'staff';
+
+        // Save user name and role for dashboard
+        const emailName = email.split('@')[0];
+        localStorage.setItem('tommy-user-name', emailName.charAt(0).toUpperCase() + emailName.slice(1));
+        localStorage.setItem('tommy-user-email', email);
+        localStorage.setItem('tommy-user-role', role);
+        localStorage.setItem('tommy-is-admin', role === 'admin' || role === 'staff' ? 'true' : 'false');
+        
+        // Redirect based on role
+        if (role === 'admin') {
+          window.location.href = 'dashboard.html';
+        } else if (role === 'staff') {
+          window.location.href = 'staff-dashboard.html';
+        } else {
+          // Fallback for demo users
+          window.location.href = 'index.html';
+        }
+      }
   });
 
   // ============================================================
@@ -109,11 +125,22 @@ document.addEventListener('DOMContentLoaded', () => {
     valid &= validate('reg-confirm', confirm && confirm === password, 'Passwords do not match.');
     valid &= validate('reg-terms', terms, 'You must accept the terms to continue.');
 
-    if (valid) {
-      localStorage.setItem('tommy-user-name', firstName);
-      localStorage.setItem('tommy-user-email', email);
-      window.location.href = 'dashboard.html';
-    }
+      if (valid) {
+        // For registration, we'll default to 'user' role unless it's a staff email
+        let role = email.toLowerCase().includes('@tommyshotel.com') ? 'staff' : 'user';
+        
+        localStorage.setItem('tommy-user-name', firstName);
+        localStorage.setItem('tommy-user-email', email);
+        localStorage.setItem('tommy-user-role', role);
+        localStorage.setItem('tommy-is-admin', role === 'admin' || role === 'staff' ? 'true' : 'false');
+        
+        // Redirect based on role
+        if (role === 'admin' || role === 'staff') {
+          window.location.href = role === 'admin' ? 'dashboard.html' : 'staff-dashboard.html';
+        } else {
+          window.location.href = 'index.html';
+        }
+      }
   });
 
   // ============================================================
@@ -133,29 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
     alert('Password reset link has been sent to your email address. (This is a demo)');
   });
 
-  // ============================================================
-  // THEME TOGGLE (auth page specific — no navbar)
-  // ============================================================
-  const authThemeBtn = document.getElementById('auth-theme-toggle');
-  if (authThemeBtn) {
-    const savedTheme = localStorage.getItem('tommy-theme') || 'light';
-    document.documentElement.setAttribute('data-theme', savedTheme);
-
-    authThemeBtn.addEventListener('click', () => {
-      const current = document.documentElement.getAttribute('data-theme');
-      const next = current === 'dark' ? 'light' : 'dark';
-      document.documentElement.setAttribute('data-theme', next);
-      localStorage.setItem('tommy-theme', next);
-      updateAuthThemeIcon(next);
-    });
-
-    updateAuthThemeIcon(savedTheme);
-
-    function updateAuthThemeIcon(theme) {
-      authThemeBtn.innerHTML = theme === 'dark'
-        ? `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>`
-        : `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`;
-    }
-  }
+  // Theme toggle removed from auth page to maintain 'Grand' aesthetic
+  document.documentElement.setAttribute('data-theme', 'dark');
 
 });

@@ -52,13 +52,24 @@ document.addEventListener('DOMContentLoaded', () => {
   const thumbs = document.querySelectorAll('.room-thumb');
 
   const galleryImages = [
-    { src: 'images/rooms/suite-1.jpg', alt: 'Room main view' },
+    { src: 'images/details/room-detail-1.png', alt: 'Room main view' },
     { src: 'images/rooms/suite-2.jpg', alt: 'Room second view' },
-    { src: 'images/rooms/deluxe-room-1.jpg', alt: 'Room bathroom' },
-    { src: 'images/rooms/deluxe-room-2.jpg', alt: 'Room detail' }
+    { src: 'images/rooms/deluxe-room-2.jpg', alt: 'Room bathroom' },
+    { src: 'images/rooms/family-room-1.jpg', alt: 'Room detail' }
   ];
 
+  if (heroImg && galleryImages[0]) {
+    heroImg.src = galleryImages[0].src;
+    heroImg.alt = galleryImages[0].alt;
+  }
+
   thumbs.forEach((thumb, i) => {
+    const img = thumb.querySelector('img');
+    if (img && galleryImages[i]) {
+      img.src = galleryImages[i].src;
+      img.alt = galleryImages[i].alt;
+    }
+    
     thumb.addEventListener('click', () => {
       thumbs.forEach(t => t.classList.remove('active'));
       thumb.classList.add('active');

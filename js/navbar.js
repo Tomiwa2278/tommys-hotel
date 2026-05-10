@@ -16,6 +16,7 @@
           <a href="rooms.html" data-page="rooms" role="listitem">Rooms</a>
           <a href="about.html" data-page="about" role="listitem">About</a>
           <a href="contact.html" data-page="contact" role="listitem">Contact</a>
+          <a href="dashboard.html" id="nav-dashboard-link" style="display:none;" data-page="dashboard" role="listitem">Dashboard</a>
         </div>
 
         <div class="navbar-actions">
@@ -46,7 +47,6 @@
           <a href="rooms.html" data-page="rooms">Rooms</a>
           <a href="about.html" data-page="about">About</a>
           <a href="contact.html" data-page="contact">Contact</a>
-          <a href="auth.html">Sign In / Register</a>
           <a href="booking.html" class="btn btn-primary">Book Now</a>
         </div>
       </div>
@@ -56,6 +56,16 @@
   // Inject navbar
   const root = document.getElementById('navbar-root');
   if (root) root.innerHTML = navbarHTML;
+
+  // ---- Dashboard Link Visibility ----
+  const userRole = localStorage.getItem('tommy-user-role');
+  const dashboardLink = document.getElementById('nav-dashboard-link');
+  if (dashboardLink && (userRole === 'admin' || userRole === 'staff')) {
+    dashboardLink.style.display = 'inline-block';
+    if (userRole === 'staff') {
+      dashboardLink.href = 'staff-dashboard.html';
+    }
+  }
 
   // ---- Active link detection ----
   const path = window.location.pathname;

@@ -164,8 +164,10 @@ const ROOMS_DATA = [
 // ============================================================
 // STATE
 // ============================================================
+// ============================================================
+// STATE
+// ============================================================
 let filteredRooms = [...ROOMS_DATA];
-let compareList = [];
 
 // ============================================================
 // RENDER ROOMS
@@ -189,14 +191,6 @@ function renderRooms(rooms) {
 
   grid.innerHTML = rooms.map(room => `
     <article class="room-listing-card reveal" aria-label="${room.name}">
-      <div class="room-card-compare">
-        <button class="compare-btn ${compareList.find(r => r.id === room.id) ? 'selected' : ''}"
-          data-id="${room.id}"
-          aria-label="Add ${room.name} to comparison"
-          title="Compare">
-          ${compareList.find(r => r.id === room.id) ? '✓ Comparing' : '+ Compare'}
-        </button>
-      </div>
       <div class="room-listing-img">
         <img src="${room.image}" alt="${room.name} - ${room.type}" loading="lazy">
       </div>
@@ -241,15 +235,6 @@ function renderRooms(rooms) {
       </div>
     </article>
   `).join('');
-
-  // Add compare button listeners
-  grid.querySelectorAll('.compare-btn').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      const id = parseInt(btn.dataset.id);
-      toggleCompare(id);
-    });
-  });
 
   // Re-observe reveals
   document.querySelectorAll('.reveal:not(.revealed)').forEach(el => {
@@ -318,92 +303,6 @@ function updatePriceDisplay() {
 }
 
 // ============================================================
-// COMPARE FEATURE
-// ============================================================
-function toggleCompare(id) {
-  const room = ROOMS_DATA.find(r => r.id === id);
-  if (!room) return;
-
-  const idx = compareList.findIndex(r => r.id === id);
-  if (idx > -1) {
-    compareList.splice(idx, 1);
-  } else {
-    if (compareList.length >= 2) {
-      alert('You can only compare 2 rooms at a time. Remove one first.');
-      return;
-    }
-    compareList.push(room);
-  }
-
-  updateCompareDrawer();
-  renderRooms(filteredRooms);
-}
-
-function updateCompareDrawer() {
-  const drawer = document.getElementById('compare-drawer');
-  const slot1 = document.getElementById('compare-slot-1');
-  const slot2 = document.getElementById('compare-slot-2');
-  const compareBtn = document.getElementById('compare-now-btn');
-
-  if (!drawer) return;
-
-  drawer.classList.toggle('visible', compareList.length > 0);
-
-  [slot1, slot2].forEach((slot, i) => {
-    if (!slot) return;
-    const room = compareList[i];
-    if (room) {
-      slot.classList.add('filled');
-      slot.querySelector('.slot-name').textContent = room.name;
-      slot.querySelector('.compare-slot-remove').dataset.id = room.id;
-      slot.querySelector('.compare-slot-remove').style.display = 'inline';
-    } else {
-      slot.classList.remove('filled');
-      slot.querySelector('.slot-name').textContent = 'Select a room';
-      slot.querySelector('.compare-slot-remove').style.display = 'none';
-    }
-  });
-
-  if (compareBtn) compareBtn.disabled = compareList.length < 2;
-}
-
-function showCompareModal() {
-  const modal = document.getElementById('compare-modal');
-  if (!modal || compareList.length < 2) return;
-
-  const [r1, r2] = compareList;
-  const tbody = document.getElementById('compare-tbody');
-  if (!tbody) return;
-
-  const rows = [
-    ['Type', r1.type, r2.type],
-    ['Price / Night', `₦${r1.price.toLocaleString()}`, `₦${r2.price.toLocaleString()}`],
-    ['Guests', r1.guests, r2.guests],
-    ['Bed Type', r1.beds, r2.beds],
-    ['Rating', `★ ${r1.rating} (${r1.reviews} reviews)`, `★ ${r2.rating} (${r2.reviews} reviews)`],
-    ['WiFi', r1.amenities.includes('Free WiFi') ? '✓' : '✗', r2.amenities.includes('Free WiFi') ? '✓' : '✗'],
-    ['Mini Bar', r1.amenities.includes('Mini Bar') ? '✓' : '✗', r2.amenities.includes('Mini Bar') ? '✓' : '✗'],
-    ['Room Service', r1.amenities.includes('Room Service') ? '✓' : '✗', r2.amenities.includes('Room Service') ? '✓' : '✗'],
-    ['Private Balcony', r1.amenities.includes('Private Balcony') ? '✓' : '✗', r2.amenities.includes('Private Balcony') ? '✓' : '✗'],
-  ];
-
-  const headRow = document.getElementById('compare-head-row');
-  if (headRow) {
-    headRow.innerHTML = `<th>Feature</th><th>${r1.name}</th><th>${r2.name}</th>`;
-  }
-
-  tbody.innerHTML = rows.map(([label, v1, v2]) => `
-    <tr>
-      <td>${label}</td>
-      <td style="color:${v1==='✓'?'var(--color-success)':v1==='✗'?'var(--color-error)':'var(--text-primary)'}">${v1}</td>
-      <td style="color:${v2==='✓'?'var(--color-success)':v2==='✗'?'var(--color-error)':'var(--text-primary)'}">${v2}</td>
-    </tr>
-  `).join('');
-
-  modal.classList.add('active');
-}
-
-// ============================================================
 // URL PARAMS (from hero search)
 // ============================================================
 function applyURLParams() {
@@ -459,25 +358,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // Sort select
   document.getElementById('sort-select')?.addEventListener('change', applyFilters);
 
-  // Compare slot removes
-  document.querySelectorAll('.compare-slot-remove').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const id = parseInt(btn.dataset.id);
-      const idx = compareList.findIndex(r => r.id === id);
-      if (idx > -1) { compareList.splice(idx, 1); }
-      updateCompareDrawer();
-      renderRooms(filteredRooms);
-    });
-  });
-
-  // Compare now button
-  document.getElementById('compare-now-btn')?.addEventListener('click', showCompareModal);
-
-  // Compare modal close
-  document.getElementById('compare-modal-close')?.addEventListener('click', () => {
-    document.getElementById('compare-modal')?.classList.remove('active');
-  });
-
   // Mobile filter toggle
   document.getElementById('filter-toggle-btn')?.addEventListener('click', () => {
     document.querySelector('.filter-sidebar')?.classList.toggle('mobile-open');
@@ -513,3 +393,4 @@ document.addEventListener('DOMContentLoaded', () => {
     checkOutInput.setAttribute('min', tomorrow.toISOString().split('T')[0]);
   }
 });
+
